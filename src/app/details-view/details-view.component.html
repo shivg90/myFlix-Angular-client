@@ -1,0 +1,19 @@
+<mat-card class="details-dialog">
+    <button
+      class="details-close-button"
+      mat-stroked-button
+      aria-label="close movie details"
+      mat-dialog-close
+      color="primary"
+    >
+      X
+    </button>
+    <mat-card-title>
+      <h3 class="details-dialog-title">{{ data.Title }}</h3>
+    </mat-card-title>
+    <br />
+    <mat-dialog-content class="details-dialog-content">
+      <b>Description: </b>{{ data.Description }}
+      <b>Release: </b>{{ data.Release }}
+    </mat-dialog-content>
+  </mat-card>

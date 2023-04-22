@@ -19,6 +19,12 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { MatIconModule } from '@angular/material/icon';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { GenreViewComponent } from './genre-view/genre-view.component';
+import { DirectorViewComponent } from './director-view/director-view.component';
+import { DetailsViewComponent } from './details-view/details-view.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+
 
 // routes /welcome /movies ... takes user to the matching page
 const appRoutes: Routes = [
@@ -33,7 +39,12 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    UserProfileComponent,
+    GenreViewComponent,
+    DirectorViewComponent,
+    DetailsViewComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
