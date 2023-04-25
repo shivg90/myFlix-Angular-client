@@ -1,0 +1,23 @@
+$secondary-color: hsl(127, 66%, 28%);
+
+.main-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 80px;
+}
+
+button {
+    flex: 1;
+    padding: 12px 4px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 5%;
+}
+
+h1 {
+    font-size: 46px;
+}
+

@@ -3,12 +3,11 @@
   <mat-card class="profile-card">
     <mat-card-header class="profile-card-header">
       <mat-card-title class="profile-card-header-title"
-        >Hello {{ user.Username }}!</mat-card-title
+        >Hello, {{ user.Username }}!</mat-card-title
       >
     </mat-card-header>
     <mat-card-title class="user-update-card-title"
-      >Here you can update your profile data or delete your
-      account.</mat-card-title
+      >Update your information:</mat-card-title
     >
     <mat-card-content>
       <form class="user-update-form">
@@ -68,4 +67,5 @@
       </button>
     </mat-card-actions>
   </mat-card>
+  <app-favorite-movies />
 </div>

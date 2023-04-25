@@ -15,14 +15,12 @@ export class DetailsViewComponent implements OnInit {
    * @param data - specific movie data, received from moviecard via MAT_DIALOG_DATA
    * @property {string} Title - movie title
    * @property {string} Description - description of the movie
-   * @property {string} Release - year of the movie
    */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
       Title: string;
       Description: string;
-      Release: string;
     }
   ) {}
 

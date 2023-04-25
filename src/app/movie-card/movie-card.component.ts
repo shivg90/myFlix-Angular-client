@@ -45,6 +45,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   addToFavorites(id: string): void {
+    console.log(id);
     this.fetchApiData.addFavMovie(id).subscribe((resp: any) => {
       this.snackbar.open('The movie was added to favorites.', 'OK', {
         duration: 2000,

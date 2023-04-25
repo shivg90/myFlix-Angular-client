@@ -1,0 +1,19 @@
+$color: hsl(305, 35%, 80%);
+
+.app-nav-bar {
+    //position: fixed; is causing overlap with movie-cards
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    z-index: 100;
+    width: 100%;
+    background-color: $color;
+}
+
+.top-title {
+    margin-left: 30px;
+}
+
+.mat-buttons {
+    margin-left: 20px;
+}

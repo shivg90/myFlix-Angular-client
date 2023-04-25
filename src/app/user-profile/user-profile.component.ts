@@ -2,10 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialogRef } from '@angular/material/dialog';
 import { formatDate } from '@angular/common';
-
-
 
 @Component({
   selector: 'app-user-profile',
@@ -36,7 +33,6 @@ export class UserProfileComponent implements OnInit {
 
   constructor(  
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserProfileComponent>,
     public snackBar: MatSnackBar,
     private router: Router
   ) {}

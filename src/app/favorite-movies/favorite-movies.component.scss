@@ -1,6 +1,6 @@
 $secondary-color: hsl(127, 66%, 28%);
 
-.movie-card-container {
+.favorite-movies-view {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -8,7 +8,10 @@ $secondary-color: hsl(127, 66%, 28%);
     gap: 20px; 
     margin-left: 20px;
     margin-right: 20px;
-    
+}
+
+.favorite-movies__title {
+    padding-top: 20px;
 }
 
 img {
@@ -19,6 +22,7 @@ img {
 
 mat-card-title {
     font-size: 24px;
+    text-align: left;
 }
   
 mat-card-subtitle {
@@ -33,7 +37,6 @@ mat-card-subtitle {
     flex-shrink: 0;
     margin-bottom: 30px; 
     border: 2px solid $secondary-color;
-
   }
 
 // further actions and buttons on the movie cards (director, genre, synopsis)
