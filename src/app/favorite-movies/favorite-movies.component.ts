@@ -6,12 +6,20 @@ import { DetailsViewComponent } from '../details-view/details-view.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
+/**
+ * defines user favorite movies component
+ */
 @Component({
   selector: 'app-favorite-movies',
   templateUrl: './favorite-movies.component.html',
   styleUrls: ['./favorite-movies.component.scss']
 })
 export class FavoriteMoviesComponent {
+  /**
+   * below variables will manage the data received from the API calls 
+   * @favoriteMovies stores the specfic user's favorite movies
+   * @user stores the specific user's data
+   */
   favoriteMovies: any[] = [];
   user: any = {};
 
@@ -26,6 +34,10 @@ export class FavoriteMoviesComponent {
     console.log(this.favoriteMovies)
   }
 
+  /**
+   * Fetches user's favorite movies by filterng API call fetchApiData.getAllMovies() by user and movie id
+   * @function getFavoriteMovies
+   */
   getFavoriteMovies(): void {
     this.fetchApiData.getUser().subscribe((user: any) => {
       this.user = user;
@@ -35,7 +47,49 @@ export class FavoriteMoviesComponent {
     });
   }
 
-  // Open genre information from Genre-View-Component
+  /**
+   * Determines if a movie id is in the user's favorites list or not
+   * @param id of movie, type: string
+   * @returns boolean showing movie id is true or false
+  */
+  isFavorite(id: string): boolean {
+    return this.user.FavoriteMovies.includes(id);
+  }
+  
+  /**
+   * Adds movie to user's favorite movies list using the API call fetchApiData.addFavMovie()
+   * @function addToFavorites
+   * @param id of movie, type: string
+  */
+  addToFavorites(id: string): void {
+    this.fetchApiData.addFavMovie(id).subscribe((result) => {
+      this.snackBar.open('Movie added to favorites', 'OK', {
+        duration: 2000,
+      });
+      this.ngOnInit();
+    });
+  }
+  
+  /**
+    * Removes movie from user's favorite movies list using the API call fetchApiData.deleteFavMovie()
+    * @function removeFromFavorites
+    * @param id of movie, type: string
+  */
+  removeFromFavorites(id: string): void {
+    console.log(id);
+    this.fetchApiData.deleteFavMovie(id).subscribe((result) => {
+      this.snackBar.open('Movie removed from favorites', 'OK', {
+        duration: 2000,
+      });
+      this.ngOnInit();
+    });
+  }
+
+  /**
+   * Opens dialog to display genre details
+   * @param name of specfic Genre
+   * @param description of specific Genre
+   */
   openGenre(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
       data: {
@@ -46,7 +100,12 @@ export class FavoriteMoviesComponent {
     });
   }
 
-  // Open director information from Director-View-Component
+  /**
+   * Opens dialog to display director details
+   * @param name of director
+   * @param bio of director
+   * @param birthday of director
+   */
   openDirector(name: string, bio: string, birthday: string): void {
     this.dialog.open(DirectorViewComponent, {
       data: {
@@ -58,40 +117,18 @@ export class FavoriteMoviesComponent {
     });
   }
 
-  // Open movie details from Details-View-Component
-  openSynopsis(title: string, description: string): void {
+   /**
+   * Opens dialog to display movie details
+   * @param title of movie
+   * @param description of movie
+   */
+  openDetails(title: string, description: string): void {
     this.dialog.open(DetailsViewComponent, {
       data: {
         Title: title,
         Description: description,
       },
       width: '400px',
-    });
-  }
-
-  // check if a movie is a user's favorite
-  isFavorite(id: string): boolean {
-    return this.user.FavoriteMovies.includes(id);
-  }
-
-  // add a movie to a user's favorites
-  addToFavorites(id: string): void {
-    this.fetchApiData.addFavMovie(id).subscribe((result) => {
-      this.snackBar.open('Movie added to favorites', 'OK', {
-        duration: 2000,
-      });
-      this.ngOnInit();
-    });
-  }
-
-  // Removes a movie from a user's favorites
-  removeFromFavorites(id: string): void {
-    console.log(id);
-    this.fetchApiData.deleteFavMovie(id).subscribe((result) => {
-      this.snackBar.open('Movie removed from favorites', 'OK', {
-        duration: 2000,
-      });
-      this.ngOnInit();
     });
   }
 }
