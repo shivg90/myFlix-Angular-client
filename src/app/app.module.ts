@@ -27,6 +27,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FavoriteMoviesComponent } from './favorite-movies/favorite-movies.component';
 
 
+
 // routes /welcome /movies ... takes user to the matching page
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
